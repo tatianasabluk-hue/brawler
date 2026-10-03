@@ -1,0 +1,107 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121225;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 2.3rem;
+    color: #f7d070;
+    text-shadow: 3px 3px 0px #000;
+}
+
+.brawler-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 650px;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+button {
+    background-color: #2b3a63;
+    color: white;
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 12px 22px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #151d33;
+    transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
+}
+
+button:hover {
+    background-color: #3b528c;
+}
+
+button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0 #151d33;
+}
+
+.story-card {
+    background-color: rgba(18, 18, 38, 0.95);
+    border: 4px solid #f7d070;
+    border-radius: 20px;
+    padding: 25px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+.story-card img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #fff;
+    margin: 15px 0;
+}
+
+.story-card h2 {
+    color: #f7d070;
+    margin-bottom: 5px;
+}
+
+.story-card p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #e5e5e5;
+    text-align: justify;
+}
+
+.rarity {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+.legendary { color: #ffeb3b; text-shadow: 1px 1px 2px #000; }
+.mythic { color: #ff2a7a; text-shadow: 1px 1px 2px #000; }
+.epic { color: #a020f0; text-shadow: 1px 1px 2px #000; }
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}

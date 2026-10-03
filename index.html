@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Відомих Бравлерів | Brawl Stars</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Brawl Stars: Топ 10 Бравлерів</h1>
+        <p>Натисніть на бійця, щоб відкрити його секретну історію!</p>
+    </header>
+
+    <main>
+        <nav id="buttons-container" class="brawler-buttons"></nav>
+        <section id="story-card" class="story-card hidden">
+            <h2 id="brawler-name">Нікнейм</h2>
+            <div class="rarity" id="brawler-rarity">Рідкісність</div>
+            <img id="brawler-img" src="" alt="Бравлер">
+            <p id="brawler-text">Текст історії...</p>
+        </section>
+    </main>
+
+    <script>
+        const brawlers = {
+            sirius: { name: "Сіріус (Sirius)", rarity: "Ультра-легендарний", img: "sirius.jpg", text: "Сіріус — головний лиходій Парку Старр. Він підкорює магічну силу кристалів та викрадає тіні інших бравлерів, змушуючи їх виконувати свої накази." },
+            kaze: { name: "Кадзе (Kaze)", rarity: "Ультра-легендарний", img: "kaze.jpg", text: "Кадзе — витончена гейша вдень та небезпечний ніндзя вночі. Зміна бойової стійки повністю перетворює її атаки та супер-здібності." },
+            kit: { name: "Кіт (Kit)", rarity: "Легендарний", img: "kit.jpg", text: "Кіт — легендарний мультяшний кіт із Starr Studios. Він вміє застрибувати на голови союзників для лікування або нападати на ворогів з гострими кігтями." },
+            ziggy: { name: "Зіггі (Ziggy)", rarity: "Міфічний", img: "ziggy.jpg", text: "Зіггі — геніальний підліток-винахідник. Завдяки своїм новітнім нано-гаджетам він створює на карті зони, які повністю уповільнюють суперників." },
+            damian: { name: "Даміан (Damian)", rarity: "Міфічний", img: "damian.jpg", text: "Даміан — незламний боєць ближнього бою з величезним запасом здоров'я. Його Супер-атака заряджається щоразу, коли він отримує шкоду." },
+            bolt: { name: "Болт (Bolt)", rarity: "Епічний", img: "bolt.jpg", text: "Болт — надшвидкий робот, створений для блискавичних штурмів. Його електричні снаряди миттєво паралізують та пробивають захист ворогів." },
+            nory: { name: "Норі (Nory)", rarity: "Легендарний", img: "nory.jpg", text: "Норі — таємничий боєць, чиє минуле сховане під завісою секретності Парку Старр. Його шокові атаки здатні раптово змінити весь хід гри." },
+            leon: { name: "Леон (Leon)", rarity: "Легендарний", img: "leon.jpg", text: "Леон — хитрий хлопчик у зеленому костюмі хамелеона. Він кидає швидкі сурікени, а за допомогою Супера стає повністю невидимим." },
+            spike: { name: "Спайк (Spike)", rarity: "Легендарний", img: "spike.jpg", text: "Спайк — веселий і кактус, що ожив. Його колючі гранати розлітаються на голки при вибуху, засипаючи шкодою велику площу." },
+            mortis: { name: "Мортіс (Mortis)", rarity: "Міфічний", img: "mortis.jpg", text: "Мортіс — похмурий вампір-трунар. Він робить стрімкі випади своєю гострою лопатою, а Супером випускає кажанів, які крадуть здоров'я." }
+        };
+
+        const container = document.getElementById('buttons-container');
+        for (const key in brawlers) {
+            const btn = document.createElement('button');
+            btn.innerText = brawlers[key].name.split(' ')[0];
+            btn.onclick = () => showStory(key);
+            container.appendChild(btn);
+        }
+
+        function showStory(id) {
+            const card = document.getElementById('story-card');
+            const brawler = brawlers[id];
+
+            document.getElementById('brawler-name').innerText = brawler.name;
+            document.getElementById('brawler-rarity').innerText = brawler.rarity;
+            document.getElementById('brawler-img').src = brawler.img;
+            document.getElementById('brawler-text').innerText = brawler.text;
+
+            const rarityElement = document.getElementById('brawler-rarity');
+            rarityElement.className = 'rarity'; 
+            if (brawler.rarity.includes('Легендарний') || brawler.rarity.includes('Ультра')) rarityElement.classList.add('legendary');
+            else if (brawler.rarity.includes('Міфічний')) rarityElement.classList.add('mythic');
+            else rarityElement.classList.add('epic');
+
+            card.classList.remove('hidden');
+            card.style.animation = 'none';
+            card.offsetHeight; 
+            card.style.animation = 'fadeIn 0.4s ease forwards';
+        }
+    </script>
+</body>
+</html>
